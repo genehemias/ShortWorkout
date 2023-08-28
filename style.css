@@ -1,0 +1,7 @@
+:root {
+    --progress-value: 19%;    
+}
+
+.progress-bar {
+    width: var(--progress-value)
+}
