@@ -1,10 +1,12 @@
 const btnStart = document.getElementById("btn-start");
+const exerciseName = document.getElementById("exercise-name");
+const exerciseDescription = document.getElementById("exercise-description");
 
 const exercises = [
-    Excercise(1, "jumping jacks", "do a jumping jack", null),
-    Excercise(2, "lunges", "step forward & crouch down a bit", null),
+    Excercise(1, "Jumping Jacks", "do a jumping jack", null),
+    Excercise(2, "Lunges", "step forward & crouch down a bit", null),
     Excercise(3, "Calf Raises", "stand on your tippy toes", null),
-    Excercise(4, "Star Jump", "like a jumping jack, but start ina  squat", null),
+    Excercise(4, "Star Jump", "like a jumping jack, but start in a squat", null),
     Excercise(5, "Squat Thrusts", "Start like you're going to do a push up, but kick your legs back instead", null),
     Excercise(6, "Skip Rope", "Use a pretend rope", null)
 ];
@@ -21,6 +23,7 @@ let root = document.documentElement;
 let completedExercises = [];
 var currentExcercise = nextExcercise();
 
+displayCurrentExercise();
 
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
@@ -46,7 +49,8 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
         completedExercises = [];
     } else {
         currentExcercise = nextExcercise(currentExcercise.id);    
-        console.log(`next up: ${currentExcercise.name}`)
+        console.log(`next up: ${currentExcercise.name}`);
+        displayCurrentExercise()
         startRestTimer();
     }
 
@@ -70,7 +74,7 @@ restTimer.addEventListener('secondsUpdated', function (e) {
 });
 
 function btnStartClick() {
-    if (!started) {
+    if (!started) {        
         if (!resting)
         { startExerciseTimer(); }
         else
@@ -122,4 +126,9 @@ function nextExcercise(lastId = 0) {
     } while (nextId == lastId || completedExercises.includes(nextId + 1)); //don't repeat any exercises
     console.log(`using exercise ${nextId + 1}`)
     return exercises[nextId];
+}
+
+function displayCurrentExercise() {
+    exerciseName.innerText = currentExcercise.name;
+    exerciseDescription.innerText = currentExcercise.description;
 }
