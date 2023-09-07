@@ -1,27 +1,25 @@
 const btnStart = document.getElementById("btn-start");
-let started = false;
 
-let timeLeft = 0;
-let exerciseTimer = new Timer();
-let timerId;// = setInterval(btnStartClick, 1000);
+let started = false;
+let exerciseTimer = new easytimer.Timer();
 let progressBar = document.getElementById("progress-bar");
 let root = document.documentElement;
 
+exerciseTimer.addEventListener('secondsUpdated', function (e) {
+    let timeLeft = exerciseTimer.getTimeValues().toString();
+    timeLeft = timeLeft.substr(6,2);
+    console.log(timeLeft);
+    root.style.setProperty("--progress-value", timeLeft + "%");
+    progressBar.ariaValueNow = timeLeft;
+});
+
 function btnStartClick() {
     if (!started) {
+        exerciseTimer.start({countdown:true, startValues:{seconds:30}});
         btnStart.innerText = "Pause";
-        timeLeft++
-        timerId = setInterval(btnStartClick, 1000);
-        if (timeLeft == 30) {
-            clearTimeout(timerId);
-            timeLeft = 0;       
-        } else {
-            root.style.setProperty("--progress-value", timeLeft + "%");
-            progressBar.ariaValueNow = timeLeft;
-        }
     } else {
         btnStart.innerText = "Start";
-        clearTimeout(timerId);
+        exerciseTimer.pause();
     }
     started = !started;
 }
