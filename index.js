@@ -9,12 +9,15 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
     timeLeft = timeLeft.substr(6,2);
     console.log(timeLeft);
-    root.style.setProperty("--progress-value", timeLeft + "%");
-    progressBar.ariaValueNow = timeLeft;
+    timeLeftRatio = (timeLeft / 30) * 100;
+    console.log(timeLeftRatio);
+    root.style.setProperty("--progress-value", timeLeftRatio + "%");
+    progressBar.ariaValueNow = timeLeftRatio;
 });
 
 exerciseTimer.addEventListener('targetAchieved', function (e) {
-    console.log("TIMER ENDED")
+    console.log("TIMER ENDED");
+    //exerciseTimer.reset();
 });
 
 function btnStartClick() {
