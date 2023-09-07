@@ -1,15 +1,26 @@
 const btnStart = document.getElementById("btn-start");
 
+const exercises = [
+    Excercise(1, "jumping jacks", "do a jumping jack", null),
+    Excercise(2, "lunges", "step forward & crouch down a bit", null),
+    Excercise(3, "Calf Raises", "stand on your tippy toes", null),
+    Excercise(4, "Star Jump", "like a jumping jack, but start ina  squat", null),
+    Excercise(5, "Squat Thrusts", "Start like you're going to do a push up, but kick your legs back instead", null),
+    Excercise(6, "Skip Rope", "Use a pretend rope", null)
+];
+
 let started = false;
-let exerciseTimeUnit = 6;
-let restTimeUnit = 3;
-let numberOfExercises = 6;
+let exerciseTimeUnit = 30;
+let restTimeUnit = 10;
+let numberOfExercises = 3;
 let resting = false;
-let exercisesDone = 0;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
 let progressBar = document.getElementById("progress-bar");
 let root = document.documentElement;
+let completedExercises = [];
+var currentExcercise = nextExcercise();
+
 
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
@@ -21,19 +32,21 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
 });
 
 exerciseTimer.addEventListener('targetAchieved', function (e) {
-    console.log("WORK TIMER ENDED");
+    console.log(`WORK TIMER ENDED FOR EXCERCISE ${currentExcercise.id} - ${currentExcercise.name}`);
     exerciseTimer.reset();
     exerciseTimer.pause();
 
-    exercisesDone++;
-    
-    console.log(`resting: ${resting}`)
-    
-    if (exercisesDone >= numberOfExercises) {
+    completedExercises.push(currentExcercise.id);
+    console.log(completedExercises);
+
+    if (completedExercises.length >= numberOfExercises) {
         //all done! reset UI
         btnStart.innerText = "Start";
         started = !started;
+        completedExercises = [];
     } else {
+        currentExcercise = nextExcercise(currentExcercise.id);    
+        console.log(`next up: ${currentExcercise.name}`)
         startRestTimer();
     }
 
@@ -89,4 +102,24 @@ function startExerciseTimer() {
         root.style.setProperty("--progress-value", "100%");
         exerciseTimer.start({countdown:true, startValues:{seconds:exerciseTimeUnit + 1}});    
     }    
+}
+
+function Excercise(_id, _name, _description, _img)
+{
+    return {
+        id: _id,
+        name: _name,
+        description: _description,
+        image: _img
+    };
+}
+
+function nextExcercise(lastId = 0) {
+    let nextId;
+    do {
+        nextId = Math.floor(Math.random()* (exercises.length));
+        console.log(`should we use exercise ${nextId + 1} ?`)
+    } while (nextId == lastId || completedExercises.includes(nextId + 1)); //don't repeat any exercises
+    console.log(`using exercise ${nextId + 1}`)
+    return exercises[nextId];
 }
