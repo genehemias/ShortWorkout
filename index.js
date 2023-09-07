@@ -13,6 +13,10 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
     progressBar.ariaValueNow = timeLeft;
 });
 
+exerciseTimer.addEventListener('targetAchieved', function (e) {
+    console.log("TIMER ENDED")
+});
+
 function btnStartClick() {
     if (!started) {
         exerciseTimer.start({countdown:true, startValues:{seconds:30}});
