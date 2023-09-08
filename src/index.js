@@ -39,9 +39,7 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
 });
 
 exerciseTimer.addEventListener('targetAchieved', function (e) {
-    exerciseTimer.reset();
-    exerciseTimer.pause();
-
+    exerciseTimer.stop();
     completedExercises.push(currentExcercise.id);
 
     if (completedExercises.length >= numberOfExercises) {
@@ -59,8 +57,7 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
 });
 
 restTimer.addEventListener('targetAchieved', function (e) {
-    restTimer.reset();
-    restTimer.pause();    
+    restTimer.stop();
     startExerciseTimer();    
     resting = false;
 })
