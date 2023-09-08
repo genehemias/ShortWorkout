@@ -44,6 +44,7 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
 
     if (completedExercises.length >= numberOfExercises) {
         //all done! reset UI
+        playAllDoneSound();
         btnStart.innerText = "Start";
         started = !started;
         completedExercises = [];
@@ -138,5 +139,10 @@ function playExcerciseStartSound() {
 
 function playRestStartSound() {
     let sound = new Audio("resources/old-roblox-jump-sound.mp3");
+    sound.play();
+}
+
+function playAllDoneSound() {
+    let sound = new Audio("resources/party-kazoo-sound-effect.mp3");
     sound.play();
 }
