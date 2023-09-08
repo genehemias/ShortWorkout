@@ -8,6 +8,7 @@ Click the Start button and follow the directions.
 
 ## Roadmap/Contributions
 Planned features:  
+- make it 'dark mode' (black background with white text)
 - modularize/organize the javascript a bit better
 - display an illustration or .gif for each excercise
 - change the color of the progress bar from blue to yellow during the rest timer
@@ -22,3 +23,7 @@ Planned features:
 - use browser's IndexedDB to track completed workouts
   - add a view where users can view workout history
  
+## Good to know
+Uses:  
+- The aptly named [EasyTimer](http://albert-gonzalez.github.io/easytimer.js/)
+- Bootstrap 5
