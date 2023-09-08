@@ -3,6 +3,7 @@ A simple static web app to guide you through a 5-10 minute workout.
 Presents 6 random excercises (from a total of 9 - more coming soon). 30 second excercise intervals punctuated with 10 second rests periods.
 
 ## Usage
+[Deployed to Azure](https://salmon-plant-0a0ed6d0f.3.azurestaticapps.net)  
 Click the Start button and follow the directions.
 
 ## Roadmap/Contributions
