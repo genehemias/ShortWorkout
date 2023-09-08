@@ -10,6 +10,7 @@ Planned features:
 - modularize/organize the javascript a bit better
 - display an illustration or .gif for each excercise
 - play a sound at the end of each timer
+- change the color of the progress bar from blue to yellow during the rest timer
 - make the number of excercises configurable based on user input/setting
   -  within reason: minimum of 5, maximum of 25(?)
 - provide a checkbox that includes/excludes excercises that require dumbells
