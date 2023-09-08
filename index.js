@@ -17,7 +17,7 @@ const exercises = [
 let started = false;
 let exerciseTimeUnit = 30;
 let restTimeUnit = 10;
-let numberOfExercises = 3;
+let numberOfExercises = 6;
 let resting = false;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
@@ -33,7 +33,6 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
     timeLeft = timeLeft.substr(6,2);
     console.log(timeLeft);
     timeLeftRatio = (timeLeft / exerciseTimeUnit) * 100;
-    //console.log(timeLeftRatio);
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
 
