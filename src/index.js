@@ -11,7 +11,10 @@ const exercises = [
     Excercise(6, "Skip Rope", "Use a pretend rope", false, null),
     Excercise(7, "Bridging", "Lay on your back, knees bent, and elevate your hips", false, null),
     Excercise(8, "Dumbell Curl", "Palms forward. Elbows in. Both arms.", true, null),
-    Excercise(9, "Wide Pushup", "Like a pushup but your hands are farther apart. lower till your elbows are 90 degrees", false, null )
+    Excercise(9, "Wide Pushup", "Like a pushup but your hands are farther apart. lower till your elbows are 90 degrees", false, null ),
+    Excercise(10, "Standing Row", "Palms down. Raise weights to chest height, elbows out.", true, null),
+    Excercise(11, "Reverse Dumbell Curl", "Palms down. Elbows in. Both arms.", true, null),
+    Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, null)
 ];
 
 let started = false;
