@@ -92,7 +92,8 @@ function startRestTimer() {
         restTimer.start();
     } else {
         root.style.setProperty("--progress-value", "100%");
-        restTimer.start({countdown:true, startValues:{seconds:restTimeUnit + 1}});    
+        restTimer.start({countdown:true, startValues:{seconds:restTimeUnit + 1}});
+        playRestStartSound();
     }
 }
 
@@ -132,7 +133,13 @@ function displayCurrentExercise() {
     exerciseName.innerText = currentExcercise.name;
     exerciseDescription.innerText = currentExcercise.description;
 }
- function playExcerciseStartSound() {
+
+function playExcerciseStartSound() {
     let sound = new Audio("resources/Train-horn-sound.mp3");
     sound.play();
- }
+}
+
+function playRestStartSound() {
+    let sound = new Audio("resources/old-roblox-jump-sound.mp3");
+    sound.play();
+}
