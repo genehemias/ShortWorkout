@@ -36,7 +36,6 @@ exerciseTimer.addEventListener('secondsUpdated', function (e) {
 });
 
 exerciseTimer.addEventListener('targetAchieved', function (e) {
-    console.log(`WORK TIMER ENDED FOR EXCERCISE ${currentExcercise.id} - ${currentExcercise.name}`);
     exerciseTimer.reset();
     exerciseTimer.pause();
 
@@ -57,7 +56,6 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
 });
 
 restTimer.addEventListener('targetAchieved', function (e) {
-    console.log("REST TIMER ENDED");
     restTimer.reset();
     restTimer.pause();
     startExerciseTimer();
@@ -67,7 +65,6 @@ restTimer.addEventListener('targetAchieved', function (e) {
 restTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = restTimer.getTimeValues().toString();
     timeLeft = timeLeft.substr(6,2);
-    console.log(timeLeft);
     timeLeftRatio = (timeLeft / restTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
@@ -88,7 +85,6 @@ function btnStartClick() {
 }
 
 function startRestTimer() {
-    console.log("starting REST timer");
     if (restTimer.isPaused()) {
         restTimer.start();
     } else {
@@ -98,7 +94,6 @@ function startRestTimer() {
 }
 
 function startExerciseTimer() {
-    console.log("starting WORK timer");
     if (exerciseTimer.isPaused()) {
         exerciseTimer.start();
     } else {
@@ -122,11 +117,10 @@ function nextExcercise(lastId = 0) {
     let nextId;
     do {
         nextId = Math.floor(Math.random()* (exercises.length));
-        console.log(`should we use exercise ${nextId + 1} ?`)
     } while (nextId == lastId || completedExercises.includes(nextId + 1)); //don't repeat any exercises
     
     let next = exercises[nextId];
-    console.log(`using exercise ${nextId + 1} - ${next.name}`);
+console.log(`next exercise ${nextId + 1} - ${next.name}`);
     return next;
 }
 
