@@ -60,8 +60,8 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
 
 restTimer.addEventListener('targetAchieved', function (e) {
     restTimer.reset();
-    restTimer.pause();
-    startExerciseTimer();
+    restTimer.pause();    
+    startExerciseTimer();    
     resting = false;
 })
 
@@ -74,7 +74,7 @@ restTimer.addEventListener('secondsUpdated', function (e) {
 
 function btnStartClick() {
     if (!started) {        
-        if (!resting)
+        if (!resting) 
         { startExerciseTimer(); }
         else
         { startRestTimer(); }
@@ -100,8 +100,9 @@ function startExerciseTimer() {
     if (exerciseTimer.isPaused()) {
         exerciseTimer.start();
     } else {
-        root.style.setProperty("--progress-value", "100%");
-        exerciseTimer.start({countdown:true, startValues:{seconds:exerciseTimeUnit + 1}});    
+        root.style.setProperty("--progress-value", "100%");        
+        exerciseTimer.start({countdown:true, startValues:{seconds:exerciseTimeUnit + 1}});
+        playExcerciseStartSound();
     }    
 }
 
@@ -131,3 +132,7 @@ function displayCurrentExercise() {
     exerciseName.innerText = currentExcercise.name;
     exerciseDescription.innerText = currentExcercise.description;
 }
+ function playExcerciseStartSound() {
+    let sound = new Audio("resources/Train-horn-sound.mp3");
+    sound.play();
+ }
