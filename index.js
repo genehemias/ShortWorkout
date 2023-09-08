@@ -31,7 +31,6 @@ displayCurrentExercise();
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
     timeLeft = timeLeft.substr(6,2);
-    console.log(timeLeft);
     timeLeftRatio = (timeLeft / exerciseTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
@@ -42,7 +41,6 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
     exerciseTimer.pause();
 
     completedExercises.push(currentExcercise.id);
-    console.log(completedExercises);
 
     if (completedExercises.length >= numberOfExercises) {
         //all done! reset UI
@@ -50,9 +48,8 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
         started = !started;
         completedExercises = [];
     } else {
-        currentExcercise = nextExcercise(currentExcercise.id);    
-        console.log(`next up: ${currentExcercise.name}`);
-        displayCurrentExercise()
+        currentExcercise = nextExcercise(currentExcercise.id);        
+        displayCurrentExercise();
         startRestTimer();
     }
 
@@ -127,8 +124,10 @@ function nextExcercise(lastId = 0) {
         nextId = Math.floor(Math.random()* (exercises.length));
         console.log(`should we use exercise ${nextId + 1} ?`)
     } while (nextId == lastId || completedExercises.includes(nextId + 1)); //don't repeat any exercises
-    console.log(`using exercise ${nextId + 1}`)
-    return exercises[nextId];
+    
+    let next = exercises[nextId];
+    console.log(`using exercise ${nextId + 1} - ${next.name}`);
+    return next;
 }
 
 function displayCurrentExercise() {
