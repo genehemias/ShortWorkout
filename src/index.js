@@ -1,6 +1,7 @@
 const btnStart = document.getElementById("btn-start");
 const exerciseName = document.getElementById("exercise-name");
 const exerciseDescription = document.getElementById("exercise-description");
+const progressBar = document.getElementById("progress-bar");
 
 const exercises = [
     Excercise(1, "Jumping Jacks", "do a jumping jack", false, null),
@@ -24,7 +25,6 @@ let numberOfExercises = 6;
 let resting = false;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
-let progressBar = document.getElementById("progress-bar");
 let root = document.documentElement;
 let completedExercises = [];
 var currentExcercise = nextExcercise();
@@ -89,6 +89,7 @@ function startRestTimer() {
     if (restTimer.isPaused()) {
         restTimer.start();
     } else {
+        progressBar.classList.add("bg-warning");
         root.style.setProperty("--progress-value", "100%");
         restTimer.start({countdown:true, startValues:{seconds:restTimeUnit + 1}});
         playRestStartSound();
@@ -99,6 +100,7 @@ function startExerciseTimer() {
     if (exerciseTimer.isPaused()) {
         exerciseTimer.start();
     } else {
+        progressBar.classList.remove("bg-warning");
         root.style.setProperty("--progress-value", "100%");        
         exerciseTimer.start({countdown:true, startValues:{seconds:exerciseTimeUnit + 1}});
         playExcerciseStartSound();
