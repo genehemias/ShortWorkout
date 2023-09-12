@@ -3,6 +3,7 @@ import {nextExcercise, completedExercises} from "./excercises.js";
 const btnStart = document.getElementById("btn-start");
 const exerciseName = document.getElementById("exercise-name");
 const exerciseDescription = document.getElementById("exercise-description");
+const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
 
 let started = false;
@@ -97,6 +98,7 @@ function startExerciseTimer() {
 function displayCurrentExercise() {
     exerciseName.innerText = currentExcercise.name;
     exerciseDescription.innerText = currentExcercise.description;
+    excerciseImage.src = currentExcercise.image;
 }
 
 function playExcerciseStartSound() {
