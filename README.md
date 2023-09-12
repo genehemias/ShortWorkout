@@ -10,7 +10,6 @@ Click the Start button and follow the directions.
 Planned features:  
 - make it 'dark mode' (black background with white text)
 - modularize/organize the javascript a bit better
-- display an illustration or .gif for each excercise
 - splash a banner when the cycle is complete
 - make the number of excercises configurable based on user input/setting
   -  within reason: minimum of 5, maximum of 25(?)
