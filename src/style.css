@@ -5,3 +5,7 @@
 .progress-bar {
     width: var(--progress-value)
 }
+
+.height-41 {
+    max-height: 41rem;
+}
