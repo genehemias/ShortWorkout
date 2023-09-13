@@ -1,4 +1,4 @@
-import {nextExcercise, completedExercises} from "./excercises.js";
+import {nextExcercise, completedExercises, resetCompletedExcercises} from "./excercises.js";
 
 const btnStart = document.getElementById("btn-start");
 const btnStartModal = document.getElementById("btn-start-modal");
@@ -44,7 +44,7 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
         playAllDoneSound();
         btnStart.innerText = "Start";
         started = !started;
-        completedExercises = [];
+        resetCompletedExcercises();
     } else {
         currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);        
         displayCurrentExercise();

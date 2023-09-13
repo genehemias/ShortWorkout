@@ -12,6 +12,10 @@ function nextExcercise(useHandWeights, lastId = 0) {
     return next;
 }
 
+function resetCompletedExcercises() {
+    completedExercises = [];
+}
+
 function Excercise(_id, _name, _description, _weights, _img)
 {
     return {
@@ -38,4 +42,4 @@ const exercises = [
     Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, "resources/lateral raise.jpg")
 ];
 
-export {completedExercises, nextExcercise};
+export {completedExercises, nextExcercise, resetCompletedExcercises};
