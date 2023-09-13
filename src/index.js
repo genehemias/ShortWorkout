@@ -24,7 +24,7 @@ let restTimer = new easytimer.Timer();
 let root = document.documentElement;
 var currentExcercise = nextExcercise(false);//1st excercise will never use wieghts b/c we don't know user selection yet
 
-//document.getElementById("modal-finished").addEventListener("hidden.bs.modal", () => setupModal.show());
+document.getElementById("modal-finished").addEventListener("hidden.bs.modal", () => setupModal.show());
 setupModal.show();
 btnStartModal.addEventListener("click", hideModalAndStart);
 btnStart.addEventListener("click", btnStartClick);
