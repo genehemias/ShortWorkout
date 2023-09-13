@@ -13,8 +13,6 @@ Planned features:
 - splash a banner when the cycle is complete
 - make the number of excercises configurable based on user input/setting
   -  within reason: minimum of 5, maximum of 25(?)
-- provide a checkbox that includes/excludes excercises that require dumbells
-  - omit excercises based on the selection
 - add more excercises
 - improve the excercise descriptions
 - store the excercises elsewhere and fetch them via api/AJAX call on initial page load
