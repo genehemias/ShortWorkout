@@ -1,6 +1,7 @@
 import {nextExcercise, completedExercises} from "./excercises.js";
 
 const btnStart = document.getElementById("btn-start");
+const btnStartModal = document.getElementById("btn-start-modal");
 const exerciseName = document.getElementById("exercise-name");
 const excercisePrompt = document.getElementById("exercise-prompt");
 const exerciseDescription = document.getElementById("exercise-description");
@@ -22,8 +23,9 @@ let root = document.documentElement;
 var currentExcercise = nextExcercise();
 
 setupModal.show();
-displayCurrentExercise();
+btnStartModal.addEventListener("click", hideModalAndStart);
 btnStart.addEventListener("click", btnStartClick);
+displayCurrentExercise();
 
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
@@ -63,6 +65,12 @@ restTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeftRatio = (timeLeft / restTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
+
+function hideModalAndStart() {
+    setupModal.hide();
+    //TODO make sure nextExcercise() considers the checkbox value
+    btnStartClick();
+}
 
 function btnStartClick() {
     if (!started) {        
