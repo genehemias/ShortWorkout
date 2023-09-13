@@ -5,6 +5,8 @@ const exerciseName = document.getElementById("exercise-name");
 const exerciseDescription = document.getElementById("exercise-description");
 const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
+const sound = new Audio();
+sound.autoplay = true;
 
 let started = false;
 let exerciseTimeUnit = 30;
@@ -102,16 +104,16 @@ function displayCurrentExercise() {
 }
 
 function playExcerciseStartSound() {
-    let sound = new Audio("resources/Train-horn-sound.mp3");
+    sound.src = "resources/Train-horn-sound.mp3";
     sound.play();
 }
 
 function playRestStartSound() {
-    let sound = new Audio("resources/old-roblox-jump-sound.mp3");
+    sound.src = "resources/old-roblox-jump-sound.mp3";
     sound.play();
 }
 
 function playAllDoneSound() {
-    let sound = new Audio("resources/party-kazoo-sound-effect.mp3");
+    sound.src = "resources/party-kazoo-sound-effect.mp3";
     sound.play();
 }
