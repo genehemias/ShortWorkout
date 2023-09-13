@@ -11,15 +11,18 @@ Planned features:
 - make it 'dark mode' (black background with white text)
 - modularize/organize the javascript a bit better
 - splash a banner when the cycle is complete
+- add a counter that shows how many excercises are complete/total for the workout
 - make the number of excercises configurable based on user input/setting
-  -  within reason: minimum of 5, maximum of 25(?)
-- provide a checkbox that includes/excludes excercises that require dumbells
-  - omit excercises based on the selection
+  - use a slider
+  - within reason: minimum of 5, maximum of 25(?), default 7
+  - display a dynamic workout length based on current number of excercises selected
+    - multiply the number of excercises by the length of each excercise. add to that the multiple of the number of rests by the length of each rest
 - add more excercises
 - improve the excercise descriptions
 - store the excercises elsewhere and fetch them via api/AJAX call on initial page load
 - use browser's IndexedDB to track completed workouts
   - add a view where users can view workout history
+  - a scrollable modal. support pagination?
  
 ## Good to know
 Uses:  

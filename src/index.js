@@ -1,15 +1,19 @@
-import {nextExcercise, completedExercises} from "./excercises.js";
+import {nextExcercise, completedExercises, resetCompletedExcercises} from "./excercises.js";
 
 const btnStart = document.getElementById("btn-start");
+const btnStartModal = document.getElementById("btn-start-modal");
 const exerciseName = document.getElementById("exercise-name");
 const excercisePrompt = document.getElementById("exercise-prompt");
 const exerciseDescription = document.getElementById("exercise-description");
 const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
+const setupModal = new bootstrap.Modal("#modal-setup");
+
 const sound = new Audio();
 sound.autoplay = true;
 
 let started = false;
+let useHandWeights = false;
 let exerciseTimeUnit = 30;
 let restTimeUnit = 10;
 let numberOfExercises = 6;
@@ -17,10 +21,12 @@ let resting = false;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
 let root = document.documentElement;
-var currentExcercise = nextExcercise();
+var currentExcercise = nextExcercise(false);//1st excercise will never use wieghts b/c we don't know user selection yet
 
-displayCurrentExercise();
+setupModal.show();
+btnStartModal.addEventListener("click", hideModalAndStart);
 btnStart.addEventListener("click", btnStartClick);
+displayCurrentExercise();
 
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
@@ -38,9 +44,9 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
         playAllDoneSound();
         btnStart.innerText = "Start";
         started = !started;
-        completedExercises = [];
+        resetCompletedExcercises();
     } else {
-        currentExcercise = nextExcercise(currentExcercise.id);        
+        currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);        
         displayCurrentExercise();
         startRestTimer();
     }
@@ -60,6 +66,12 @@ restTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeftRatio = (timeLeft / restTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
+
+function hideModalAndStart() {
+    useHandWeights = document.getElementById("chkHandWeights").checked;
+    setupModal.hide();
+    btnStartClick();
+}
 
 function btnStartClick() {
     if (!started) {        
