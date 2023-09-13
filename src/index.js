@@ -21,7 +21,7 @@ let resting = false;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
 let root = document.documentElement;
-var currentExcercise = nextExcercise(useHandWeights);
+var currentExcercise = nextExcercise(false);//1st excercise will never use wieghts b/c we don't know user selection yet
 
 setupModal.show();
 btnStartModal.addEventListener("click", hideModalAndStart);
