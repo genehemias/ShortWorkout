@@ -13,6 +13,7 @@ const sound = new Audio();
 sound.autoplay = true;
 
 let started = false;
+let useHandWeights = false;
 let exerciseTimeUnit = 30;
 let restTimeUnit = 10;
 let numberOfExercises = 6;
@@ -20,7 +21,7 @@ let resting = false;
 let exerciseTimer = new easytimer.Timer();
 let restTimer = new easytimer.Timer();
 let root = document.documentElement;
-var currentExcercise = nextExcercise();
+var currentExcercise = nextExcercise(useHandWeights);
 
 setupModal.show();
 btnStartModal.addEventListener("click", hideModalAndStart);
@@ -45,7 +46,7 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
         started = !started;
         completedExercises = [];
     } else {
-        currentExcercise = nextExcercise(currentExcercise.id);        
+        currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);        
         displayCurrentExercise();
         startRestTimer();
     }
@@ -67,8 +68,8 @@ restTimer.addEventListener('secondsUpdated', function (e) {
 });
 
 function hideModalAndStart() {
+    useHandWeights = document.getElementById("chkHandWeights").checked;
     setupModal.hide();
-    //TODO make sure nextExcercise() considers the checkbox value
     btnStartClick();
 }
 

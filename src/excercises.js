@@ -1,10 +1,11 @@
 let completedExercises = [];
 
-function nextExcercise(lastId = 0) {
+function nextExcercise(useHandWeights, lastId = 0) {
     let nextId;
     do {
         nextId = Math.floor(Math.random()* (exercises.length));
-    } while (nextId == lastId || completedExercises.includes(nextId + 1)); //don't repeat any exercises
+    //don't repeat any exercises. respect the user selection for weights
+    } while (nextId == lastId || completedExercises.includes(nextId + 1) || (!useHandWeights && exercises[nextId].needsBells)); 
     
     let next = exercises[nextId];
     console.log(`next exercise ${nextId + 1} - ${next.name}`);
