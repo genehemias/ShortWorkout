@@ -6,6 +6,8 @@ const excercisePrompt = document.getElementById("exercise-prompt");
 const exerciseDescription = document.getElementById("exercise-description");
 const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
+const setupModal = new bootstrap.Modal("#modal-setup");
+
 const sound = new Audio();
 sound.autoplay = true;
 
@@ -19,6 +21,7 @@ let restTimer = new easytimer.Timer();
 let root = document.documentElement;
 var currentExcercise = nextExcercise();
 
+setupModal.show();
 displayCurrentExercise();
 btnStart.addEventListener("click", btnStartClick);
 
