@@ -2,6 +2,7 @@ import {nextExcercise, completedExercises} from "./excercises.js";
 
 const btnStart = document.getElementById("btn-start");
 const exerciseName = document.getElementById("exercise-name");
+const excercisePrompt = document.getElementById("exercise-prompt");
 const exerciseDescription = document.getElementById("exercise-description");
 const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
@@ -76,6 +77,7 @@ function btnStartClick() {
 }
 
 function startRestTimer() {
+    excercisePrompt.innerText = "Next Excercise - get ready..."
     if (restTimer.isPaused()) {
         restTimer.start();
     } else {
@@ -87,6 +89,7 @@ function startRestTimer() {
 }
 
 function startExerciseTimer() {
+    excercisePrompt.innerText = "Go!"
     if (exerciseTimer.isPaused()) {
         exerciseTimer.start();
     } else {
