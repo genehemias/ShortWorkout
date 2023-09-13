@@ -8,6 +8,7 @@ const exerciseDescription = document.getElementById("exercise-description");
 const excerciseImage = document.getElementById("excercise-image");
 const progressBar = document.getElementById("progress-bar");
 const setupModal = new bootstrap.Modal("#modal-setup");
+const finishedModal = new bootstrap.Modal("#modal-finished");
 
 const sound = new Audio();
 sound.autoplay = true;
@@ -23,6 +24,7 @@ let restTimer = new easytimer.Timer();
 let root = document.documentElement;
 var currentExcercise = nextExcercise(false);//1st excercise will never use wieghts b/c we don't know user selection yet
 
+document.getElementById("modal-finished").addEventListener("hidden.bs.modal", () => setupModal.show());
 setupModal.show();
 btnStartModal.addEventListener("click", hideModalAndStart);
 btnStart.addEventListener("click", btnStartClick);
@@ -42,14 +44,17 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
     if (completedExercises.length >= numberOfExercises) {
         //all done! reset UI
         playAllDoneSound();
+        finishedModal.show();
+
         btnStart.innerText = "Start";
         started = !started;
         resetCompletedExcercises();
+        currentExcercise = nextExcercise(false);
     } else {
-        currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);        
-        displayCurrentExercise();
+        currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);                
         startRestTimer();
     }
+    displayCurrentExercise();
 
     resting = true;
 });
