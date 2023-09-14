@@ -13,6 +13,7 @@ Planned features:
 - modularize/organize the javascript a bit better
 - splash a banner when the cycle is complete
 - add a counter that shows how many excercises are complete/total for the workout
+  - put it between the `exercise-prompt` and `exercise-name` elements
 - make the number of excercises configurable based on user input/setting
   - use a slider
   - within reason: minimum of 5, maximum of 25(?), default 7
@@ -21,6 +22,7 @@ Planned features:
 - add more excercises
 - improve the excercise descriptions
 - store the excercises elsewhere and fetch them via api/AJAX call on initial page load
+  - maybe in a google sheet? somewhere that can be read-only but doesn't require a secret to access...
 - use browser's IndexedDB to track completed workouts
   - add a view where users can view workout history
   - a scrollable modal. support pagination?
