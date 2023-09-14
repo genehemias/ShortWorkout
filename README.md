@@ -9,6 +9,7 @@ Click the Start button and follow the directions.
 ## Roadmap/Contributions
 Planned features:  
 - make it 'dark mode' (black background with white text)
+- reduce audio volume to a reasonable level
 - modularize/organize the javascript a bit better
 - splash a banner when the cycle is complete
 - add a counter that shows how many excercises are complete/total for the workout
