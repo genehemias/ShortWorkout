@@ -67,8 +67,9 @@ const exercises = [
     Excercise(15, "Russian Twist", "Balance on your bottom only. Twist your torso side to side.", false, "resources/russian twist.jpg"),
     Excercise(16, "Dorsal Raise", "Lay flat on your tummy, then make like Superman.", false, "resources/dorsal raise.jpg"),
     Excercise(17, "Decline Pushup", "Put your feet on something and then do pushups.", false, "resources/decline pushup.jpg"),
-    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", false, "resources/tricep kickback right.jpg", 19),
-    Excercise(19, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", false, "resources/tricep kickback left.jpg", 18),
+    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", true, "resources/tricep kickback right.jpg", 19),
+    Excercise(19, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", true, "resources/tricep kickback left.jpg", 18),
+    Excercise(20, "Front Raise", "Stand up. Palms down. Raise one arm in front of you until parallel with the floor. Lower and repeat with the other arm.", true, "resources/front raise.jpg"),
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
