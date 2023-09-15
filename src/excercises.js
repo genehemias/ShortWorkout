@@ -4,7 +4,6 @@ function nextExcercise(useHandWeights, lastId = 0) {
     let nextId;
     do {
         nextId = Math.floor(Math.random()* (exercises.length));
-    //don't repeat any exercises. respect the user selection for weights
     } while (nextId == lastId || alreadyDidThisExercise(nextId) || dumbellSettingIsNotMet(useHandWeights, nextId)); 
     
     let next = exercises[nextId];
@@ -24,14 +23,15 @@ function dumbellSettingIsNotMet(useHandWeights, id) {
     return (!useHandWeights && exercises[id].needsBells);
 }
 
-function Excercise(_id, _name, _description, _weights, _img)
+function Excercise(_id, _name, _description, _weights, _img, _mustAlsoDo = null)
 {
     return {
         id: _id,
         name: _name,
         description: _description,
         needsBells: _weights,
-        image: _img
+        image: _img,
+        mustAlsoDo: _mustAlsoDo,        
     };
 }
 
@@ -53,8 +53,8 @@ const exercises = [
     Excercise(15, "Russian Twist", "Balance on your bottom only. Twist your torso side to side.", false, "resources/russian twist.jpg"),
     Excercise(16, "Dorsal Raise", "Lay flat on your tummy, then make like Superman.", false, "resources/dorsal raise.jpg"),
     Excercise(17, "Decline Pushup", "Put your feet on something and then do pushups.", false, "resources/decline pushup.jpg"),
-    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", false, "resources/triceps kickback right.jpg"),
-    Excercise(18, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", false, "resources/triceps kickback right.jpg"),
+    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", false, "resources/triceps kickback right.jpg", 18),
+    Excercise(18, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", false, "resources/triceps kickback right.jpg", 17),
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
