@@ -42,6 +42,7 @@ const exercises = [
     Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, "resources/lateral raise.jpg"),
     Excercise(13, "Abdominal Crunch", "Like the first half a situp. Don't lower your chin.", false, "resources/abdominal crunch.jpg"),
     Excercise(14, "Reverse Chrunch", "On your back, with legs in the air, knees bent. Flex your abs until your butt comes off the ground. Relax, repeat.", false, "resources/reverse crunch.jpg"),
+    Excercise(15, "Russian Twist", "Balance on your bottom only. Twist your torso side to side.", false, "resources/russian twist.jpg")
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
