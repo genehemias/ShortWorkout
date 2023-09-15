@@ -70,7 +70,8 @@ const exercises = [
     Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", true, "resources/tricep kickback right.jpg", 19),
     Excercise(19, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", true, "resources/tricep kickback left.jpg", 18),
     Excercise(20, "Front Raise", "Stand up. Palms down. Raise one arm in front of you until parallel with the floor. Lower and repeat with the other arm.", true, "resources/front raise.jpg"),
-    Excercise(21, "Hammer Curl", "Like a regular curl, but with palms toward you. Both arms together.", true, "resources/hammer curl.jpg")
+    Excercise(21, "Hammer Curl", "Like a regular curl, but with palms toward you. Both arms together.", true, "resources/hammer curl.jpg"),
+    Excercise(22, "Slalom Jumps", "Stand feet together. Jump side to side.", false, "resources/slalom jump.jpg")
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
