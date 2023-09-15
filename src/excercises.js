@@ -6,6 +6,7 @@ function nextExcercise(useHandWeights, lastId = 0) {
     if (lastId) {
         let last = exercises[lastId - 1];//-1 b/c our exercise ids start @ 1 instead of 0
         //check if this exercise must be paired with another
+        //TODO if we're selecting the final exercise of the workout, DON'T allow selection of a paired exercise
         if (last.mustAlsoDo && ! completedExercises.includes(last.mustAlsoDo)) {
             next = exercises[last.mustAlsoDo - 1];
         }
@@ -17,7 +18,7 @@ function nextExcercise(useHandWeights, lastId = 0) {
             nextId = Math.floor(Math.random() * (exercises.length));
         } while (nextId == lastId || alreadyDidThisExercise(nextId) || dumbellSettingIsNotMet(useHandWeights, nextId)); 
         
-        next = exercises[nextId];
+        next = exercises[nextId];//TODO should this be nextId - 1 ?
     }
 
     console.log(`next exercise ${next.id} - ${next.name}`);
