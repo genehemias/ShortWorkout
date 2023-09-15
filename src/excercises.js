@@ -39,7 +39,9 @@ const exercises = [
     Excercise(9, "Wide Pushup", "Like a pushup but your hands are farther apart. lower till your elbows are 90 degrees", false, "resources/wide pushup.png"),
     Excercise(10, "Standing Row", "Palms down. Raise weights to chest height, elbows out.", true, "resources/upright row.jpg"),
     Excercise(11, "Reverse Dumbell Curl", "Palms down. Elbows in. Both arms.", true, "resources/reverse dumbell curl.jpg"),
-    Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, "resources/lateral raise.jpg")
+    Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, "resources/lateral raise.jpg"),
+    Excercise(13, "Abdominal Crunch", "Like the first half a situp. Don't lower your chin.", false, "resources/abdominal crunch.jpg"),
+    Excercise(14, "Reverse Chrunch", "On your back, with legs in the air, knees bent. Flex your abs until your butt comes off the ground. Relax, repeat.", false, "resources/reverse crunch.jpg"),
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
