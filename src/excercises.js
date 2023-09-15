@@ -5,7 +5,7 @@ function nextExcercise(useHandWeights, lastId = 0) {
     do {
         nextId = Math.floor(Math.random()* (exercises.length));
     //don't repeat any exercises. respect the user selection for weights
-    } while (nextId == lastId || completedExercises.includes(nextId + 1) || (!useHandWeights && exercises[nextId].needsBells)); 
+    } while (nextId == lastId || alreadyDidThisExercise(nextId) || dumbellSettingIsNotMet(useHandWeights, nextId)); 
     
     let next = exercises[nextId];
     console.log(`next exercise ${nextId + 1} - ${next.name}`);
@@ -14,6 +14,14 @@ function nextExcercise(useHandWeights, lastId = 0) {
 
 function resetCompletedExcercises() {
     completedExercises = [];
+}
+
+function alreadyDidThisExercise(id) {
+    return completedExercises.includes(id + 1); // +1 b/c our exercise ids start @ 1 instead of 0
+}
+
+function dumbellSettingIsNotMet(useHandWeights, id) {
+    return (!useHandWeights && exercises[id].needsBells);
 }
 
 function Excercise(_id, _name, _description, _weights, _img)
