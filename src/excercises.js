@@ -1,13 +1,26 @@
 let completedExercises = [];
 
 function nextExcercise(useHandWeights, lastId = 0) {
-    let nextId;
-    do {
-        nextId = Math.floor(Math.random()* (exercises.length));
-    } while (nextId == lastId || alreadyDidThisExercise(nextId) || dumbellSettingIsNotMet(useHandWeights, nextId)); 
-    
-    let next = exercises[nextId];
-    console.log(`next exercise ${nextId + 1} - ${next.name}`);
+    let next;
+
+    if (lastId) {
+        let last = exercises[lastId - 1];//-1 b/c our exercise ids start @ 1 instead of 0
+        //check if this exercise must be paired with another
+        if (last.mustAlsoDo && ! completedExercises.includes(last.mustAlsoDo)) {
+            next = exercises[last.mustAlsoDo - 1];
+        }
+    }
+        
+    if (!next) {//it doesn't require pairing. get a random one. 
+        let nextId;
+        do {
+            nextId = Math.floor(Math.random() * (exercises.length));
+        } while (nextId == lastId || alreadyDidThisExercise(nextId) || dumbellSettingIsNotMet(useHandWeights, nextId)); 
+        
+        next = exercises[nextId];
+    }
+
+    console.log(`next exercise ${next.id} - ${next.name}`);
     return next;
 }
 
@@ -15,8 +28,8 @@ function resetCompletedExcercises() {
     completedExercises = [];
 }
 
-function alreadyDidThisExercise(id) {
-    return completedExercises.includes(id + 1); // +1 b/c our exercise ids start @ 1 instead of 0
+function alreadyDidThisExercise(index) {
+    return completedExercises.includes(index + 1); // +1 b/c our exercise ids start @ 1 instead of 0
 }
 
 function dumbellSettingIsNotMet(useHandWeights, id) {
@@ -53,8 +66,8 @@ const exercises = [
     Excercise(15, "Russian Twist", "Balance on your bottom only. Twist your torso side to side.", false, "resources/russian twist.jpg"),
     Excercise(16, "Dorsal Raise", "Lay flat on your tummy, then make like Superman.", false, "resources/dorsal raise.jpg"),
     Excercise(17, "Decline Pushup", "Put your feet on something and then do pushups.", false, "resources/decline pushup.jpg"),
-    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", false, "resources/triceps kickback right.jpg", 18),
-    Excercise(18, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", false, "resources/triceps kickback right.jpg", 17),
+    Excercise(18, "Tricep Kickback (Right)", "Rest left leg and arm on something. Right upper arm parallel with floor. Extend/straighten right arm.", false, "resources/tricep kickback right.jpg", 19),
+    Excercise(19, "Tricep Kickback (Left)", "Rest right leg and arm on something. Left upper arm parallel with floor. Extend/straighten left arm.", false, "resources/tricep kickback left.jpg", 18),
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
