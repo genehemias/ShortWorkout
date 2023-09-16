@@ -17,6 +17,7 @@ Planned features:
 - make the number of excercises configurable based on user input/setting
   - use a slider
   - within reason: minimum of 5, maximum of 25(?), default 7
+    - maximum number will have to take into account the total number of exercises available OR we will have to allow repeating the same exercise within a workout.
   - display a dynamic workout length based on current number of excercises selected
     - multiply the number of excercises by the length of each excercise. add to that the multiple of the number of rests by the length of each rest
 - add more excercises
