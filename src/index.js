@@ -87,8 +87,8 @@ function btnStartClick() {
         btnStart.innerText = "Pause";
     } else {
         btnStart.innerText = "Start";
-        exerciseTimer.pause();
-        restTimer.pause();
+        if (exerciseTimer.isRunning()) {  exerciseTimer.pause(); }
+        if (restTimer.isRunning()) {  restTimer.pause(); }
     }
     started = !started;
 }
