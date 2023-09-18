@@ -17,7 +17,7 @@ Planned features:
 - reduce audio volume to a reasonable level
 - modularize/organize the javascript a bit better
 - splash a banner when the cycle is complete
-- add a counter that shows how many excercises are complete/total for the workout
+- add a counter that shows how many excercises are complete/total for the current workout
   - put it between the `exercise-prompt` and `exercise-name` elements
 - make the number of excercises configurable based on user input/setting
   - use a slider
@@ -31,7 +31,13 @@ Planned features:
   - maybe in a google sheet? somewhere that can be read-only but doesn't require a secret to access...
 - use browser's IndexedDB to track completed workouts
   - add a view where users can view workout history
-  - a scrollable modal. support pagination?
+    - a scrollable modal? support pagination? or maybe a separate page altogether?
+    - can be reached from either the 'setup' modal or the 'finished' modal
+      - navigation element placement should be consistent between the 2 modals
+  - gamify it a little
+    - "rank up" after every 15(?) workouts
+    - badges. like "you've done 1 hours worth of jumping jacks!"
+    - rank and badges would be visible in the modal described above
  
 ## Good to know
 Uses:  
