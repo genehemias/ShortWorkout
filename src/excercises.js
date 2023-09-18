@@ -50,10 +50,10 @@ function Excercise(_id, _name, _description, _weights, _img, _mustAlsoDo = null)
 }
 
 const exercises = [
-    Excercise(1, "Jumping Jacks", "do a jumping jack", false, "resources/jumping jack.jpg"),
-    Excercise(2, "Lunges", "step forward & crouch down a bit", false, "resources/lunge.jpg"),
-    Excercise(3, "Calf Raises", "stand on your tippy toes", false, "resources/calf raise.jpg"),
-    Excercise(4, "Star Jump", "like a jumping jack, but start in a squat", false, "resources/star jump.jpg"),
+    Excercise(1, "Jumping Jacks", "You know how to do a jumping jack...", false, "resources/jumping jack.jpg"),
+    Excercise(2, "Lunges", "Step forward & crouch down a bit. Don't bend your forward knee to much. Alternate legs.", false, "resources/lunge.jpg"),
+    Excercise(3, "Calf Raises", "Stand on your tippy toes. Up and down.", false, "resources/calf raise.jpg"),
+    Excercise(4, "Star Jump", "Like a jumping jack, but start and end in a squat", false, "resources/star jump.jpg"),
     Excercise(5, "Squat Thrusts", "Start like you're going to do a push up, but kick your legs back instead", false, "resources/squat thrust.jpg"),
     Excercise(6, "Skip Rope", "Use a pretend rope", false, "resources/skip rope.jpg"),
     Excercise(7, "Bridging", "Lay on your back, knees bent, and elevate your hips", false, "resources/bridging.jpg"),
@@ -63,7 +63,7 @@ const exercises = [
     Excercise(11, "Reverse Dumbell Curl", "Palms down. Elbows in. Both arms.", true, "resources/reverse dumbell curl.jpg"),
     Excercise(12, "Lateral Raise", "Palms inward. Raise both arms into a 'T' pose, elbows straight.", true, "resources/lateral raise.jpg"),
     Excercise(13, "Abdominal Crunch", "Like the first half a situp. Don't lower your chin.", false, "resources/abdominal crunch.jpg"),
-    Excercise(14, "Reverse Chrunch", "On your back, with legs in the air, knees bent. Flex your abs until your butt comes off the ground. Relax, repeat.", false, "resources/reverse crunch.jpg"),
+    Excercise(14, "Reverse Crunch", "On your back, with legs in the air, knees bent. Flex your abs until your butt comes off the ground. Relax, repeat.", false, "resources/reverse crunch.jpg"),
     Excercise(15, "Russian Twist", "Balance on your bottom only. Twist your torso side to side.", false, "resources/russian twist.jpg"),
     Excercise(16, "Dorsal Raise", "Lay flat on your tummy, then make like Superman.", false, "resources/dorsal raise.jpg"),
     Excercise(17, "Decline Pushup", "Put your feet on something and then do pushups.", false, "resources/decline pushup.jpg"),
