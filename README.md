@@ -9,6 +9,11 @@ Click the Start button and follow the directions.
 ## Roadmap/Contributions
 Planned features:  
 - make it 'dark mode' (black background with white text)
+- add a "Next" button next to the "Start" button.
+  - it should be enabled only while the rest timer is running (between exercises)
+  - clicking it should set `currentExcercise` to the result of `nextExcercise` **and** reset the rest timer
+  - it should _not_ add the skipped exercise to the `completedExercises` array (so it won't count toward completing the workout)
+  - this will allow users to skip exercises they should (or wish to) avoid
 - reduce audio volume to a reasonable level
 - modularize/organize the javascript a bit better
 - splash a banner when the cycle is complete
