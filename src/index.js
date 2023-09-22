@@ -1,6 +1,7 @@
-import {nextExcercise, completedExercises, resetCompletedExcercises} from "./excercises.js";
+import { nextExcercise, completedExercises, resetCompletedExcercises } from "./excercises.js";
 
 const btnStart = document.getElementById("btn-start");
+const btnNext = document.getElementById("btn-next");
 const btnStartModal = document.getElementById("btn-start-modal");
 const exerciseName = document.getElementById("exercise-name");
 const excercisePrompt = document.getElementById("exercise-prompt");
@@ -28,11 +29,12 @@ document.getElementById("modal-finished").addEventListener("hidden.bs.modal", ()
 setupModal.show();
 btnStartModal.addEventListener("click", hideModalAndStart);
 btnStart.addEventListener("click", btnStartClick);
+btnNext.addEventListener("click", btnNextClick);
 displayCurrentExercise();
 
 exerciseTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = exerciseTimer.getTimeValues().toString();
-    timeLeft = timeLeft.substr(6,2);
+    timeLeft = timeLeft.substr(6, 2);
     let timeLeftRatio = (timeLeft / exerciseTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
@@ -61,13 +63,13 @@ exerciseTimer.addEventListener('targetAchieved', function (e) {
 
 restTimer.addEventListener('targetAchieved', function (e) {
     restTimer.stop();
-    startExerciseTimer();    
+    startExerciseTimer();
     resting = false;
 })
 
 restTimer.addEventListener('secondsUpdated', function (e) {
     let timeLeft = restTimer.getTimeValues().toString();
-    timeLeft = timeLeft.substr(6,2);
+    timeLeft = timeLeft.substr(6, 2);
     let timeLeftRatio = (timeLeft / restTimeUnit) * 100;
     root.style.setProperty("--progress-value", timeLeftRatio + "%");
 });
@@ -79,42 +81,49 @@ function hideModalAndStart() {
 }
 
 function btnStartClick() {
-    if (!started) {        
-        if (!resting) 
-        { startExerciseTimer(); }
-        else
-        { startRestTimer(); }
+    if (!started) {
+        if (!resting) { startExerciseTimer(); }
+        else { startRestTimer(); }
         btnStart.innerText = "Pause";
     } else {
         btnStart.innerText = "Start";
-        if (exerciseTimer.isRunning()) {  exerciseTimer.pause(); }
-        if (restTimer.isRunning()) {  restTimer.pause(); }
+        if (exerciseTimer.isRunning()) { exerciseTimer.pause(); }
+        if (restTimer.isRunning()) { restTimer.pause(); }
     }
     started = !started;
 }
 
+function btnNextClick() {
+    currentExcercise = nextExcercise(useHandWeights, currentExcercise.id);
+    displayCurrentExercise()
+}
+
 function startRestTimer() {
     excercisePrompt.innerText = "Next Excercise - get ready..."
+    btnNext.classList.remove("disabled");
+    btnNext.removeAttribute("disabled");
     if (restTimer.isPaused()) {
         restTimer.start();
     } else {
         progressBar.classList.add("bg-warning");
         root.style.setProperty("--progress-value", "100%");
-        restTimer.start({countdown:true, startValues:{seconds:restTimeUnit + 1}});
+        restTimer.start({ countdown: true, startValues: { seconds: restTimeUnit + 1 } });
         playRestStartSound();
     }
 }
 
 function startExerciseTimer() {
     excercisePrompt.innerText = "Go!"
+    btnNext.classList.add("disabled");
+    btnNext.setAttribute('disabled', '');
     if (exerciseTimer.isPaused()) {
         exerciseTimer.start();
     } else {
         progressBar.classList.remove("bg-warning");
-        root.style.setProperty("--progress-value", "100%");        
-        exerciseTimer.start({countdown:true, startValues:{seconds:exerciseTimeUnit + 1}});
+        root.style.setProperty("--progress-value", "100%");
+        exerciseTimer.start({ countdown: true, startValues: { seconds: exerciseTimeUnit + 1 } });
         playExcerciseStartSound();
-    }    
+    }
 }
 
 function displayCurrentExercise() {
