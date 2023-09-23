@@ -16,4 +16,4 @@ Planned features:
 Uses:  
 - The aptly named [EasyTimer](http://albert-gonzalez.github.io/easytimer.js/)
 - Bootstrap 5
-- Modern browser's CORS restrictions treat scripts with a file-system-ish `src` value as coming from a different origin. This means that when working locally you can no longer just open index.html in your browser and have everything work. You have to have a local web server. I use the VS Code extension "Live Preview" from Microsoft.  It allows you to point your browser at http://127.0.0.1:3000/src/index.html ... and everything works.
+- Modern browser's CORS restrictions treat module-typed scripts with a file-system-ish `src` value as coming from a different origin. This means that when working locally you can no longer just open index.html in your browser and have everything work. You have to have a local web server. I use the VS Code extension "Live Preview" from Microsoft.  It allows you to point your browser at http://127.0.0.1:3000/src/index.html ... and everything works.
