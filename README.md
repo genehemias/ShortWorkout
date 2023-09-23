@@ -8,25 +8,13 @@ Click the Start button and follow the directions.
 
 ## Roadmap/Contributions
 Planned features:  
-- make it 'dark mode' (black background with white text)
-- add a "Next" button next to the "Start" button.
-  - it should be enabled only while the rest timer is running (between exercises)
-  - clicking it should set `currentExcercise` to the result of `nextExcercise` **and** reset the rest timer
-  - it should _not_ add the skipped exercise to the `completedExercises` array (so it won't count toward completing the workout)
-  - this will allow users to skip exercises they should (or wish to) avoid
-- reduce audio volume to a reasonable level
 - modularize/organize the javascript a bit better
-- splash a banner when the cycle is complete
-- add a counter that shows how many excercises are complete/total for the current workout
-  - put it between the `exercise-prompt` and `exercise-name` elements
 - make the number of excercises configurable based on user input/setting
   - use a slider
   - within reason: minimum of 5, maximum of 25(?), default 7
     - maximum number will have to take into account the total number of exercises available OR we will have to allow repeating the same exercise within a workout.
   - display a dynamic workout length based on current number of excercises selected
     - multiply the number of excercises by the length of each excercise. add to that the multiple of the number of rests by the length of each rest
-- add more excercises
-- improve the excercise descriptions
 - store the excercises elsewhere and fetch them via api/AJAX call on initial page load
   - maybe in a google sheet? somewhere that can be read-only but doesn't require a secret to access...
 - use browser's IndexedDB to track completed workouts
