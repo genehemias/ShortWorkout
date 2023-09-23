@@ -6,26 +6,11 @@ Presents 6 random excercises (from a total of 12 - more coming soon). 30 second 
 [Deployed to Azure](https://salmon-plant-0a0ed6d0f.3.azurestaticapps.net)  
 Click the Start button and follow the directions.
 
-## Roadmap/Contributions
+## Longer term goals
 Planned features:  
 - modularize/organize the javascript a bit better
-- make the number of excercises configurable based on user input/setting
-  - use a slider
-  - within reason: minimum of 5, maximum of 25(?), default 7
-    - maximum number will have to take into account the total number of exercises available OR we will have to allow repeating the same exercise within a workout.
-  - display a dynamic workout length based on current number of excercises selected
-    - multiply the number of excercises by the length of each excercise. add to that the multiple of the number of rests by the length of each rest
 - store the excercises elsewhere and fetch them via api/AJAX call on initial page load
   - maybe in a google sheet? somewhere that can be read-only but doesn't require a secret to access...
-- use browser's IndexedDB to track completed workouts
-  - add a view where users can view workout history
-    - a scrollable modal? support pagination? or maybe a separate page altogether?
-    - can be reached from either the 'setup' modal or the 'finished' modal
-      - navigation element placement should be consistent between the 2 modals
-  - gamify it a little
-    - "rank up" after every 15(?) workouts
-    - badges. like "you've done 1 hours worth of jumping jacks!"
-    - rank and badges would be visible in the modal described above
  
 ## Good to know
 Uses:  
