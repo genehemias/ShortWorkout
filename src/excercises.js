@@ -72,7 +72,8 @@ const exercises = [
     Excercise(20, "Front Raise", "Stand up. Palms down. Raise one arm in front of you until parallel with the floor. Lower and repeat with the other arm.", true, "resources/front raise.jpg"),
     Excercise(21, "Hammer Curl", "Like a regular curl, but with palms toward you. Both arms together.", true, "resources/hammer curl.jpg"),
     Excercise(22, "Slalom Jumps", "Stand feet together. Jump side to side.", false, "resources/slalom jump.jpg"),
-    Excercise(23, "Forward Jacks", "Like a really exaggerated, dramatic marching in place.", false, "resources/forward jacks.jpg")
+    Excercise(23, "Forward Jacks", "Like a really exaggerated, dramatic marching in place.", false, "resources/forward jacks.jpg"),
+    Excercise(24, "Plank", "Like a pushup but uses your forearms and toes to balance your body. Rigid position.", false, "resources/forward plank.jpg")
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
