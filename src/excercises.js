@@ -73,7 +73,7 @@ const exercises = [
     Excercise(21, "Hammer Curl", "Like a regular curl, but with palms toward you. Both arms together.", true, "resources/hammer curl.jpg"),
     Excercise(22, "Slalom Jumps", "Stand feet together. Jump side to side.", false, "resources/slalom jump.jpg"),
     Excercise(23, "Forward Jacks", "Like a really exaggerated, dramatic marching in place.", false, "resources/forward jacks.jpg"),
-    Excercise(24, "Plank", "Like a pushup but uses your forearms and toes to balance your body. Rigid position.", false, "resources/forward plank.jpg")
+    Excercise(24, "Plank", "Like a pushup but uses your forearms and toes to balance your body. Rigid position.", false, "resources/plank.jpg")
 ];
 
 export {completedExercises, nextExcercise, resetCompletedExcercises};
